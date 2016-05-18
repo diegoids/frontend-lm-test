@@ -1,0 +1,22 @@
+{
+  "name": "LoveMonday's Front End Test",
+  "version": "1.0.0",
+  "description": "Mobile view",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diegoids/frontend-lm-test.git"
+  },
+  "author": "Diego Neitzel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diegoids/frontend-lm-test/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1"
+  }
+}
