@@ -1,3 +1,10 @@
+/* Gradient */
+@mixin gradient($c1, $p1, $c2, $p2) {
+  background: -webkit-linear-gradient(top, $c1 $p1, $c2 $p2);
+  background:    -moz-linear-gradient(top, $c1 $p1, $c2 $p2);
+  background:         linear-gradient(to bottom, $c1 $p1, $c2 $p2);
+}
+
 /* Border Radius */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

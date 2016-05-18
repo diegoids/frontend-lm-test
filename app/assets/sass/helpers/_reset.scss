@@ -1,16 +1,36 @@
 html{
-  body{
-    position: relative;
-    font-family: $font-stack;
+  margin: 0;
+  padding: 0;
 
-    ul{
+  body{
+    font-family: $font-stack;
+    margin: 0;
+    padding: 0;
+    background-color: $color-bg-body;
+
+    *{
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    .dn{
+      display: none;
+    }
+
+    a{
+      text-decoration: none;
+      border: 0;
+    }
+
+    ul{
       list-style: none;
     }
 
-    p{
-      margin: 0;
+    button{
+      border: none;
+      background: none;
+      cursor: pointer;
     }
   }
 }

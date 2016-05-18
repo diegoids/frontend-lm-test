@@ -1,7 +1,8 @@
 @import "core/base";
 
 @import "helpers/reset";
+@import "helpers/functions";
 @import "helpers/mixins";
 
-@import "core/company";
 @import "core/header";
+@import "core/company";

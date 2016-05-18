@@ -1,3 +1,53 @@
-body{
-  background-color: #276EA4;
+header.header-main{
+  position: relative;
+  background-color: $color-header;
+  padding: 15px 0 15px;
+
+  .logo{
+    font-size: em(20);
+    text-align: center;
+  }
+
+  .toggle-menu,
+  .box-search{
+    position: absolute;
+    color: #FFF;
+  }
+
+  .toggle-menu{
+    top: 15px;
+    left: 15px;
+
+    .icon-menu{
+      font-size: em(12);
+      cursor: pointer;
+    }
+  }
+
+  .box-search{
+    top: 19px;
+    right: 15px;
+    
+    .icon-search{
+      font-size: em(17);
+      cursor: pointer;
+    }
+  }
+
+  .form-search{
+    position: relative;
+    padding: 10px 15px 0;
+
+    input{
+      width: 100%;
+      border: none;
+      padding: 5px 10px;
+    }
+
+    .btn-search{
+      position: absolute;
+      top: 16px;
+      right: 25px;
+    }
+  }
 }

@@ -1,16 +1,66 @@
-html body {
-  position: relative;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif; }
-  html body ul {
+/* Fonts */
+/* Colors */
+html {
+  margin: 0;
+  padding: 0; }
+  html body {
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    list-style: none; }
-  html body p {
-    margin: 0; }
+    background-color: #e5e5e5; }
+    html body * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; }
+    html body .dn {
+      display: none; }
+    html body a {
+      text-decoration: none;
+      border: 0; }
+    html body ul {
+      list-style: none; }
+    html body button {
+      border: none;
+      background: none;
+      cursor: pointer; }
 
+/* PX to EM */
+/* Gradient */
 /* Border Radius */
 /* Box Shadow */
 /* Transition */
 /* Transform */
-body {
-  background-color: #276EA4; }
+header.header-main {
+  position: relative;
+  background-color: #185989;
+  padding: 15px 0 15px; }
+  header.header-main .logo {
+    font-size: 1.25em;
+    text-align: center; }
+  header.header-main .toggle-menu,
+  header.header-main .box-search {
+    position: absolute;
+    color: #FFF; }
+  header.header-main .toggle-menu {
+    top: 15px;
+    left: 15px; }
+    header.header-main .toggle-menu .icon-menu {
+      font-size: 0.75em;
+      cursor: pointer; }
+  header.header-main .box-search {
+    top: 19px;
+    right: 15px; }
+    header.header-main .box-search .icon-search {
+      font-size: 1.0625em;
+      cursor: pointer; }
+  header.header-main .form-search {
+    position: relative;
+    padding: 10px 15px 0; }
+    header.header-main .form-search input {
+      width: 100%;
+      border: none;
+      padding: 5px 10px; }
+    header.header-main .form-search .btn-search {
+      position: absolute;
+      top: 16px;
+      right: 25px; }
