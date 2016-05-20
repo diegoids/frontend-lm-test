@@ -27,6 +27,24 @@ html{
       display: none;
     }
 
+    .show-true{
+      display: block !important;
+      opacity: 1 !important;
+    }
+    .show-false{
+      display: none !important;
+      opacity: 0 !important;
+    }
+
+    .ngdialog-content{
+      z-index: 998;
+    }
+    .ngdialog-content{
+      position: relative;
+      z-index: 999;
+      margin: 15px 15px 0; 
+    }
+
     a{
       text-decoration: none;
       border: 0;

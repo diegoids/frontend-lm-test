@@ -12,6 +12,11 @@
     display: inline-block;
   }
 
+  &.full{
+    width: 100%;
+    text-align: center;
+  }
+
   &.ok{
     background-color: $color-links;
   }

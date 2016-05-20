@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <title>LoveMondays' Front end Test</title>
 
@@ -23,12 +23,20 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/dist/css/app.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/css/ngDialog.min.css">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="https://www.lovemondays.com.br/assets/public/touch/favicon-16x16-99bbe21227c1bcd47f909b3e2c7db83e9b71fe243a3d88b9753e8361e947f7b8.png" type="image/x-icon" />
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ng-dialog/0.4.0/js/ngDialog.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/controllers/searchCtrl.js"></script>
+    <script src="../assets/js/controllers/loginCtrl.js"></script>
   </head>
 
-  <body>
+  <body ng-controller="loginCtrl">
     
     <!-- INIT: Header -->
     <header class="header-main">
@@ -45,16 +53,28 @@
         <i class="icon-menu"></i>
       </div>
 
-      <div class="box-search">
-        <i class="icon-search"></i>
-      </div>
-      <form class="form-search dn">
-        <input type="text" placeholder="Digite aqui o termo a ser buscado...">
-        <button type="submit" class="btn-search">
-          <span class="dn">Buscar</span>
+      <div class="search" ng-controller="searchCtrl">
+        <div class="box-search" ng-click="showAc=!showAc">
           <i class="icon-search"></i>
-        </button>
-      </form>
+        </div>
+
+        <form class="form-search" ng-class="'show-'+showAc">  
+          <input type="text" ng-keyup="acSearch(search)" ng-click="acSearch(search)" ng-model="search" ng-blur="completing=false" placeholder="Digite aqui o termo a ser buscado..." autofocus autocomplete="off">
+
+          <button type="submit" class="btn-search">
+            <span class="dn">Buscar</span>
+            <i class="icon-search"></i>
+          </button>
+
+          <ul ng-show="completing" class="box-autocomplete">
+            <li ng-repeat="term in terms.results | filter:{name:search}">
+              <a href="/empresa/{{term.slug}}">
+                {{term.name}}
+              </a>
+            </li>
+          </ul>
+        </form>
+      </div>
     </header>
 
 
@@ -77,7 +97,7 @@
       </header>
 
       <!-- INIT: Company Nav -->
-      <nav class="nav-company cf">
+      <nav class="nav-company">
         <ul>
           <li>
             <a href="javascript:;"><strong>Perfil</strong></a>
@@ -137,48 +157,7 @@
           <li class="show-login">
             
             <!-- INIT: Login box -->
-            <section class="box-login">
-              <h4 class="txt">
-                <i class="icon-padlock"></i> Acesse todo o conteúdo gratuitamente
-              </h4>
-
-              <ul class="login-type cf">
-                <li>
-                  Criar conta
-                </li>
-                <li class="active">
-                  Já possui conta?
-                </li>
-              </ul>
-
-              <div class="content login">
-                <div class="btn-holder">
-                  <button class="btn btn-fb">
-                    <i class="icon-facebook"></i>
-                    Facebook
-                  </button>
-                  <button class="btn btn-gp">
-                    <i class="icon-gplus"></i>
-                    Google +
-                  </button>
-                </div>
-
-                <p class="linebg"><span>ou</span></p>
-
-                <p class="email-login">
-                  Entrar <a href="javascript:;">utilizando seu email</a>
-                </p>
-              </div>
-
-              <div class="box-login-info">
-                <i class="icon-profile"></i>
-                <p>
-                  <strong>Junte-se à 400.000 pessoas</strong>
-                  <span>que já postaram avaliações e</span>
-                  <span>salários na LoveMondays</span>
-                </p>
-              </div>
-            </section>
+            <div ng-include="'_box_login.html'"></div>
 
           </li>
           
@@ -187,35 +166,43 @@
               <strong>Analista de Desenvolvimento Sênior</strong>
               <span>22 salários</span>
             </div>
-            <div class="value">R$ 10.745</div>
+            <div class="value">
+              <button class="btn no-fill btn-ordering" ng-click="openModalLogin()"><i class="icon-padlock"></i><span class="dn">Login</span>
+            </div>
           </li>
           <li>
             <div class="description">
               <strong>Analista Contábil</strong>
               <span>22 salários</span>
             </div>
-            <div class="value">R$ 10.745</div>
+            <div class="value">
+              <button class="btn no-fill btn-ordering" ng-click="openModalLogin()"><i class="icon-padlock"></i><span class="dn">Login</span>
+            </div>
           </li>
           <li>
             <div class="description">
               <strong>Analista de Desenvolvimento Sênior</strong>
               <span>22 salários</span>
             </div>
-            <div class="value">R$ 10.745</div>
+            <div class="value">
+              <button class="btn no-fill btn-ordering" ng-click="openModalLogin()"><i class="icon-padlock"></i><span class="dn">Login</span>
+            </div>
           </li>
           <li>
             <div class="description">
               <strong>Analista de Desenvolvimento Sênior</strong>
               <span>22 salários</span>
             </div>
-            <div class="value">R$ 10.745</div>
+            <div class="value">
+              <button class="btn no-fill btn-ordering" ng-click="openModalLogin()"><i class="icon-padlock"></i><span class="dn">Login</span>
+            </div>
           </li>
         </ul>
 
         <p class="total">Exibindo 1 - 15 de 25 salários</p>
 
         <div class="btn-load-more">
-          <button class="btn no-fill">Carregar Mais</button>
+          <button class="btn no-fill" ng-click="openModalLogin();">Carregar Mais</button>
         </div>
 
       </section>      
@@ -243,7 +230,64 @@
         </div>
       </section>
 
-
     </div>
+
+    <!-- INIT: login partial -->
+    <script type="text/ng-template" id="_box_login.html">
+      <section class="box-login" ng-controller="loginCtrl">
+        <h4 class="txt">
+          <i class="icon-padlock"></i> Acesse todo o conteúdo gratuitamente
+        </h4>
+
+        <ul class="login-type cf">
+          <li>
+            Criar conta
+          </li>
+          <li class="active">
+            Já possui conta?
+          </li>
+        </ul>
+
+        <div class="content login">
+          <div class="btn-holder">
+            <button class="btn btn-fb">
+              <i class="icon-facebook"></i>
+              Facebook
+            </button>
+            <button class="btn btn-gp">
+              <i class="icon-gplus"></i>
+              Google +
+            </button>
+          </div>
+
+          <p class="linebg"><span>ou</span></p>
+
+          <p class="email-login" ng-class="'show-'+!showLoginForm">
+            Entrar <a href="javascript:;" ng-click="showLoginForm=!showLoginForm">utilizando seu email</a>
+          </p>
+
+          <form class="box-login-email" ng-class="'show-'+showLoginForm">
+            <label for="email">
+              <span>Email</span>
+              <input type="text" id="email">
+            </label>
+            <label for="pass">
+              <span>Senha</span>
+              <input type="password" id="pass">
+            </label>
+            <button class="btn ok full">Entrar</button>
+          </form>
+        </div>
+
+        <div class="box-login-info">
+          <i class="icon-profile"></i>
+          <p>
+            <strong>Junte-se à 400.000 pessoas</strong>
+            <span>que já postaram avaliações e</span>
+            <span>salários na LoveMondays</span>
+          </p>
+        </div>
+      </section>
+    </script>
   </body>
 </html>

@@ -5,7 +5,6 @@
 /* Border Radius */
 /* Box Shadow */
 /* Transition */
-/* Transform */
 html {
   margin: 0;
   padding: 0; }
@@ -25,6 +24,18 @@ html {
       clear: both; }
     html body .dn {
       display: none; }
+    html body .show-true {
+      display: block !important;
+      opacity: 1 !important; }
+    html body .show-false {
+      display: none !important;
+      opacity: 0 !important; }
+    html body .ngdialog-content {
+      z-index: 998; }
+    html body .ngdialog-content {
+      position: relative;
+      z-index: 999;
+      margin: 15px 15px 0; }
     html body a {
       text-decoration: none;
       border: 0;
@@ -61,6 +72,9 @@ html {
   transition: opacity 0.5s, box-shadow 0.5s; }
   .btn i {
     display: inline-block; }
+  .btn.full {
+    width: 100%;
+    text-align: center; }
   .btn.ok {
     background-color: #276EA4; }
   .btn.no-fill {
@@ -122,12 +136,13 @@ html {
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
   -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
-  padding: 30px; }
+  padding: 20px; }
   .box-login .content .btn-holder {
     text-align: center; }
     .box-login .content .btn-holder .btn {
       display: inline-block;
-      margin: 0 20px; }
+      margin: 0 2px;
+      padding: 15px 10px; }
   .box-login .content .linebg {
     position: relative;
     text-align: center;
@@ -151,6 +166,14 @@ html {
 .box-login .email-login {
   text-align: center; }
 
+.box-login .box-login-email {
+  display: none;
+  opacity: 1; }
+  .box-login .box-login-email input {
+    width: 100%;
+    padding: 3px 5px;
+    margin-bottom: 10px; }
+
 .box-login .box-login-info {
   width: 95%;
   margin: 30px auto 0;
@@ -165,6 +188,28 @@ html {
     .box-login .box-login-info p strong,
     .box-login .box-login-info p span {
       display: block; }
+
+.ngdialog-content {
+  background-color: transparent !important; }
+  .ngdialog-content .ngdialog-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    border: 1px solid black;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 25px;
+    padding: 1px 6px;
+    background-color: #FFF;
+    font-size: 0.9375em; }
+  .ngdialog-content h4,
+  .ngdialog-content .box-login-info,
+  .ngdialog-content .email-login {
+    display: none !important; }
+  .ngdialog-content .box-login-email {
+    display: block !important;
+    opacity: 1 !important; }
 
 header.header-main {
   position: relative;
@@ -191,8 +236,12 @@ header.header-main {
       cursor: pointer; }
   header.header-main .form-search {
     position: relative;
-    padding: 10px 15px 0; }
+    padding: 10px 15px 0;
+    opacity: 0;
+    display: none; }
     header.header-main .form-search input {
+      position: relative;
+      z-index: 20;
       width: 100%;
       border: none;
       padding: 5px 10px; }
@@ -200,6 +249,25 @@ header.header-main {
       position: absolute;
       top: 16px;
       right: 25px; }
+    header.header-main .form-search .box-autocomplete {
+      position: absolute;
+      z-index: 10;
+      top: 35px;
+      left: 15px;
+      right: 15px;
+      background-color: #FFF;
+      -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
+      -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
+      box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27); }
+      header.header-main .form-search .box-autocomplete li {
+        border-top: 1px solid #e6e6e6;
+        padding: 3px 10px; }
+        header.header-main .form-search .box-autocomplete li a {
+          display: block; }
+        header.header-main .form-search .box-autocomplete li:hover, header.header-main .form-search .box-autocomplete li.active {
+          background-color: #e6e6e6; }
+          header.header-main .form-search .box-autocomplete li:hover a, header.header-main .form-search .box-autocomplete li.active a {
+            color: #000; }
 
 .company {
   height: 500px; }
@@ -266,9 +334,10 @@ header.header-main {
     background-color: #FFF;
     -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
     -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
-    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27); }
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.27);
+    overflow-x: scroll; }
     .company .nav-company ul {
-      overflow: hidden;
+      position: relative;
       width: 400px;
       margin: 0 auto; }
       .company .nav-company ul li {
@@ -351,6 +420,8 @@ header.header-main {
           text-align: right;
           font-weight: 400;
           padding-bottom: 5px; }
+          .company .section-sallary .list-content > li:not(.show-login) .value .btn {
+            padding: 10px 15px; }
         .company .section-sallary .list-content > li:not(.show-login).thead {
           border-top: none;
           padding-bottom: 0; }
