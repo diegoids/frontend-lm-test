@@ -9,10 +9,10 @@ HTML mobile page for company on Lovemondays' website using:
 * **AngularJS**
 
 I've decided to use:
-* **NPM** because there are a lots of updated packages in a simple and fast way to use
+* **NPM** because there are a lot of updated packages in a simple and fast way to use
 * **GULP** because helps to configure and run tasks
-* **SASS** because it become the CSS more organized and easier to maintain
-* **AngularJS** because there are a good documentation, lots of content and discussion on web and help to develop a MVC application
+* **SASS** because it become the CSS more organized, modularized and easier to maintain
+* **AngularJS** because there is a good documentation, lots of content and discussion on web and help to develop a MVC application
 
 ##Features
 * When padlock is clicked a modal with login form is showed
