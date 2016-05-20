@@ -1,0 +1,36 @@
+.btn{
+  display: inline-block;
+  padding: 17px 20px;
+  color: #FFF;
+  @include border-radius(4px);
+  text-transform: uppercase;
+  font-weight: 600;
+  @include box-shadow(0px 0px 7px 0px rgba(0,0,0,0.27));
+  @include transition(opacity .5s, box-shadow .5s);
+
+  i{
+    display: inline-block;
+  }
+
+  &.ok{
+    background-color: $color-links;
+  }
+  &.no-fill{
+    background-color: #FFF;
+    color: $color-btn-nofill;
+  }
+  &.error{
+    background-color: $color-negative;
+  }
+  &.btn-fb{
+    background-color: #375087;
+  }
+  &.btn-gp{
+    background-color: #de4d3b;
+  }
+
+  &:hover{
+    opacity: .7;
+    @include box-shadow(0px 0px 7px 0px rgba(0,0,0,0));
+  }
+}

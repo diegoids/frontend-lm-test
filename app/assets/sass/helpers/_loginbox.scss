@@ -1,0 +1,114 @@
+.box-login{
+  
+  .txt{
+    font-size: em(24);
+    text-align: center;
+    margin: 10px 0 20px;
+  }
+
+  .login-type{
+    li{
+      float: left;
+      width: 49.5%;
+      text-align: center;
+      cursor: pointer;
+      background-color: #d3d3d3;
+      color: $color-header;
+      text-transform: uppercase;
+      font-weight: 600;
+      @include border-radius(5px 5px 0 0);
+      padding: 15px 0;
+
+      &:last-child{
+        float: right;
+      }
+
+      &:hover,
+      &.active{
+        position: relative;
+        background-color: #FFF;
+        @include box-shadow(0px 0px 7px 0px rgba(0,0,0,0.27));
+
+        &:after{
+          content:"";
+          position: absolute;
+          z-index: 5;
+          width: 100%;
+          height: 5px;
+          bottom: 0;
+          left: 0;
+          background-color: #FFF;
+        }
+      }
+    }
+  }
+
+  .content{
+    position: relative;
+    z-index: 4;
+    background-color: #FFF;
+    @include box-shadow(0px 0px 7px 0px rgba(0,0,0,0.27));
+    padding: 30px;
+
+    .btn-holder{
+      text-align: center;
+
+      .btn{
+        display: inline-block;
+        margin: 0 20px;
+      }
+    }
+
+    .linebg{
+      position: relative;
+      text-align: center;
+      color: $color-text-detail;
+      margin: 20px 0;
+
+      span{
+        position: relative;
+        z-index: 5;
+        display: inline-block;
+        padding: 0 20px;
+        background-color: #FFF;
+      }
+
+      &:before{
+        content: "";
+        position: absolute;
+        top: 49%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-borders;
+      }
+    }
+  }
+
+  .email-login{
+    text-align: center;
+  }
+
+  .box-login-info{
+    width: 95%;
+    margin: 30px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid $color-borders;
+    text-align: center;
+
+    i{
+      color: $color-borders;
+      font-size: em(40);
+    }
+
+    p{
+      margin-top: 20px;
+
+      strong,
+      span{
+        display: block;
+      }
+    }
+  }
+
+}
